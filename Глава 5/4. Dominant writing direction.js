@@ -8,7 +8,7 @@ function dominantDirection(text) {
   let scripts = countBy(text, char => {
 //для этого используем функцию characterScript, которая определяет к какому языку относится символ
     let script = characterScript(char.codePointAt(0));
-	//если это не буква или иероглиф узнаем направление письма direction, иначе присваиваем "none"
+	//если это буква или иероглиф узнаем направление письма direction, иначе присваиваем "none"
     return script ? script.direction : "none";
 //убираем из полученного объекта {направление, количество} все элементы с направлением "none"
   }).filter(({name}) => name != "none");
