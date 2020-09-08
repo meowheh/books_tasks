@@ -49,11 +49,11 @@ const readline = require('readline').createInterface({
 	input: process.stdin,
 	output: process.stdout
   })
-  //Запрашиваем у пользователя ввод числа
+  //Запрашиваем у пользователя ввод данных
     readline.question(`Enter string and symbol (Example: abcccd, c): `, (x) => {
-	//преобразуем введенные данные из строки в число
+	//преобразуем введенные данные из строки в два элемента массива: строка и символ
 	let arr = x.split(/[\s,;]+/,2);
-	//Вызываем функцию isEven с введенным числом и выводим результат в консоль
+	//Вызываем функцию countChar с введенными данными и выводим результат в консоль
 	console.log(`countChar(${arr[0]},${arr[1]}) = ${countChar(arr[0],arr[1])}`);
 	readline.close()
   });
