@@ -38,22 +38,11 @@ function countBs(str)
 {
 	return countChar(str);
 }
-//Вывод примера
-console.log(`countBs("BBC") = ${countBs("BBC")}`);
-// → 2
-console.log(`countChar("kakkerlak", "k") = ${countChar("kakkerlak", "k")}`);
-// → 4
-
-//Используем инструмент Node.js для осуществления чтения из консоли
-const readline = require('readline').createInterface({
-	input: process.stdin,
-	output: process.stdout
-  })
-  //Запрашиваем у пользователя ввод числа
-    readline.question(`Enter string and symbol (Example: abcccd, c): `, (x) => {
-	//преобразуем введенные данные из строки в число
-	let arr = x.split(/[\s,;]+/,2);
-	//Вызываем функцию isEven с введенным числом и выводим результат в консоль
-	console.log(`countChar(${arr[0]},${arr[1]}) = ${countChar(arr[0],arr[1])}`);
-	readline.close()
-  });
+//Выводим форму для ввода текста пользователем - просим его ввести строку и символ
+let str = prompt("Введите строку и символ (Пример: abcccccd, c): ");
+//Разбиваем строку в массив с двумя элементами по регулярному выражению,
+// которое описывает разделители пробел, запятая и точка с запятой
+str = str.split(/[\s,;]+/,2);
+//Вызываем функцию countChar для подсчета количества вхождения символа в строке 
+//и выводим результат в консоль
+console.log(`Количество символов ${str[1]} в строке ${str[0]} = ${countChar(str[0],str[1])}`);

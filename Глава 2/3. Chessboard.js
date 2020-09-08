@@ -23,17 +23,11 @@ function buildChessboard(size){
 	}
 	return res;
 }
+//Вывод диалогового окна браузера с формой для ввода текстовой информации -
+// в нашем случае просим пользователя ввести размер шахматной доски size
+let size = prompt("Введите размер шахматной доски: ");
+//Преобразуем строку в целое число
+size = parseInt(size);
+//Вызываем функцию построения шахматной сетки и выводим результат в консоль
+console.log(buildChessboard(size));
 
- //Используем инструмент Node.js для осуществления чтения из консоли
-const readline = require('readline').createInterface({
-	input: process.stdin,
-	output: process.stdout
-  })
-  //Запрашиваем у пользователя ввод числа
-    readline.question(`Enter size of chessboard: `, (x) => {
-	//преобразуем введенные данные из строки в число
-	let size = parseInt(x);
-	//Запускаем функцию построения шахматной строки
-	console.log(buildChessboard(size));
-	readline.close()
-  });
