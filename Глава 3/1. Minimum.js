@@ -10,8 +10,17 @@ function min(x,y)
 	else 
 		return y;
 }
+//Используем инструмент Node.js для осуществления чтения из консоли
+const readline = require('readline').createInterface({
+	input: process.stdin,
+	output: process.stdout
+  })
+  //Запрашиваем у пользователя ввод строки с двумя числами
+  readline.question(`Enter two numbers: `, (x) => {
+	//Разбиваем введенную строку на массив из двух элементов по регулярному выражению разделителей пробела, запятой или ;
+	let arr = x.split(/[\s,;]+/,2);
+	//Вызываем функцию min с преобразованием символов в числа и выводим результат в консоль
+	console.log(`min(${arr[0]}, ${arr[1]}) = ${min(Number(arr[0]),Number(arr[1]))}`);
+	readline.close()
+  });
 
-console.log(min(0, 10));
-// → 0
-console.log(min(0, -10));
-// → -10

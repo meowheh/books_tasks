@@ -19,10 +19,23 @@ function isEven(x){
 	//Отнимаем -2, пока не получим 0 или 1
 	return isEven(x-2);
 }
-
-console.log(isEven(50));
+//вывод типовых значений в консоль
+console.log(`isEven(50) = ${isEven(50)}`);
 // → true
-console.log(isEven(75));
+console.log(`isEven(75) = ${isEven(75)}`);
 // → false
-console.log(isEven(-1));
+console.log(`isEven(-1) = ${isEven(-1)}`);
 // → false
+//Используем инструмент Node.js для осуществления чтения из консоли
+const readline = require('readline').createInterface({
+	input: process.stdin,
+	output: process.stdout
+  })
+  //Запрашиваем у пользователя ввод числа
+    readline.question(`Enter number: `, (x) => {
+	//преобразуем введенные данные из строки в число
+	let num = parseInt(x);
+	//Вызываем функцию isEven с введенным числом и выводим результат в консоль
+	console.log(`isEven(${num}) = ${isEven(num)}`);
+	readline.close()
+  });

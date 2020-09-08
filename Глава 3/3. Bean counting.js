@@ -39,7 +39,7 @@ function countBs(str)
 	return countChar(str);
 }
 
-console.log(countBs("BBC"));
+console.log(`countBs("BBC") = ${countBs("BBC")}`);
 // → 2
-console.log(countChar("kakkerlak", "k"));
+console.log(`countChar("kakkerlak", "k") = ${countChar("kakkerlak", "k")}`);
 // → 4
