@@ -35,7 +35,7 @@ do{
       let str = prompt(strMessage)
     /*Если рост Дениса введен корректно: это число - сразу текстовый тип переводим в число: parseFloat вернет NaN, если
     будет введена символьная строка, и это число не меньше 100 см и не больше 250 см*/
-    if((growthDenis = parseFloat(str)) != NaN && growthDenis > 100 && growthDenis < 250)
+    if(!isNaN(growthDenis = parseFloat(str)) && growthDenis > 100 && growthDenis < 250)
         {
             //Вызываем функцию calcGrowth и возвращаем массив объектов с именами и ростами 
             let growths = calcGrowth(growthDenis);
@@ -47,4 +47,4 @@ do{
     else //если рост Дениса введен некорректно, то в строку записываем просьбу ввести корректный рост
         strMessage = "Введите корректный рост Дениса! (100 < рост < 250 см)";
 //если пользователь ввел некорректные данные, повторяем цикл
-}while(growthDenis == NaN || growthDenis <= 100 || growthDenis >= 250);
+}while(isNaN(growthDenis) || growthDenis <= 100 || growthDenis >= 250);
