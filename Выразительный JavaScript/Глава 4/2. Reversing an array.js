@@ -30,10 +30,17 @@ function reverseArrayInPlace(array)
 		array[last-j] = current;  //меняем значение last-j позиции на старое значение позиции j
 	}
 }
-
-console.log(reverseArray(["A", "B", "C"]));
-// → ["C", "B", "A"];
-let arrayValue = [1, 2, 3, 4, 5];
-reverseArrayInPlace(arrayValue);
-console.log(arrayValue);
-// → [5, 4, 3, 2, 1]
+//Выводим окно для ввода данных пользователем и записываем результат в arr
+let arr = prompt("Введите любой одномерный массив (пример: 1, 3, 5, 6, 7)");
+//если пользователь не нажал Отмена
+if(!(arr === null)){
+	//разделяем строку на массив по разделителям , ; и пробелу
+	arr = arr.split(/[\s,;]+/);
+	//копируем значения массива arr в reverseArr, начиная с 0 элемента, используем slice,
+	//так как с обычным присваиванием будет происходить присваивание адреса, а не значения, а нам нужно будет менять массив reverseArr
+	reverseArr = arr.slice(0);
+	//вызываем функцию reverseArrayInPlace, которая поменяет местами содержимое reverseArr
+	reverseArrayInPlace(reverseArr);
+	//Выводим введенный массив arr и массив в обратном порядке reverseArr
+	console.log(`Введенный массив: [${arr}]\nМассив в обратном порядке: [${reverseArr}]`);
+}
