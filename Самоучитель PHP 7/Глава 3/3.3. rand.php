@@ -11,12 +11,16 @@
          <div>
              <!-- Вставка php скрипта, который выполнится, если будет нажата кнопка OK !-->
             <?php 
+                //инициализируем флаг, который определяет выполнение скрипта
+                $flag = false;
                 if(isset($_POST["button"])){
                   //Присваиваем переменным num1 и num2 значения вводимых числовых полей number1 и number2 соответственно
                   $num1 = $_POST['number1'];
                   $num2 = $_POST['number2'];
                  //Вычисляем случайное число от значения num1 по num2 включительно с помощью функции mt_rand и записываем результат в переменную res
                   $res = mt_rand($num1,$num2);
+                  //Флаг выполнения скрипта
+                  $flag = true;
                 }
             ?>
         </div>
@@ -28,15 +32,15 @@
             <!-- Вывод полей для ввода диапазона чисел с предварительным заполнением значений value с помощью вставки php скрипта, который возвращает прошлое значение 
             поля, если оно не пустое, или фиксированное начальное значение 0 и 10000, также устанавливается минимальное - min - значение 0 и 1 и максимальное - max - 
 	    с помощью вставки php скрипта, который возвращает максимальное число для генератора mt_rand, плюс устанавливается размер поля в 50 пикселей !-->
-            от <input type="number" name="number1"  min = 0 max = <? echo mt_getrandmax()?> style="width:50px" name="number1" value = "<?=$num1? $num1:0?>" />
-            до <input type="number" name="number2" min = 1 max = <? echo mt_getrandmax()?> style="width:50px" name="number2" value = "<?=$num2? $num2:10000 ?>">
+            от <input type="number" name="number1"  min = 0 max = <? echo mt_getrandmax()?> style="width:50px" name="number1" value = "<?=$flag? $num1:0?>" />
+            до <input type="number" name="number2" min = 1 max = <? echo mt_getrandmax()?> style="width:50px" name="number2" value = "<?=$flag? $num2:10000 ?>">
             <br><br>
             <!-- Вывод кнопки OK с названием button!-->
             <input type="submit" name = "button" value="OK">
             <br><br>
         </form>
         <!--Вывод надписи с результатом генерации числа !-->
-		<? if($res) echo "<h3>Результат: $res</h3>" ?>
+        <?if($flag) echo "<h3>Результат: $res</h3>" ?>
     </center></body>
 </html>
     
