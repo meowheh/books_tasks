@@ -8,9 +8,7 @@
         //конструктор класса подъезда с заданием его номера и массива объектов этажей
         public function __construct($numOfPorch, $arrayOfFloors = []){
             $this->numOfPorch = $numOfPorch;
-          //  if(!empty($arrayOfFloors))
                 $this->arrayOfFloors = $arrayOfFloors;
-          //  else $this->arrayOfFloors[] = new Floor(1);
         }
         //деструктор с освобождением памяти из массива этажей
         public function __destruct()
@@ -47,6 +45,7 @@
                     $currentFloor = $this->arrayOfFloors[$floor];
                     $str .= $currentFloor->toStr();
                 }
+                $str .= "<br>";
             return $str;
         }
         //добавить этаж

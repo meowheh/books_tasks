@@ -9,9 +9,7 @@
         //конструктор, принимающий номер этажа и массив объектов квартир
         public function __construct($numOfFloor, $arrayOfApartaments = []){
             $this->numOfFloor = $numOfFloor;
-            //if(!empty(arrayOfApartaments)){
             $this->arrayOfApartaments = $arrayOfApartaments;
-            //else $this->arrayOfApartaments[] = new Apartament(1);
         }
         //деструктор освобождает память под массив
         public function __destruct()
@@ -49,6 +47,7 @@
                 $currentApartament = $this->arrayOfApartaments[$apartament];
                 $str .= $currentApartament->toStr();
             }
+            $str.="<br>";
             return $str;
         }
         //добавить квартиру на этаж
